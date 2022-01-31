@@ -1,0 +1,22 @@
+﻿<Window
+    x:Class="RadioButtons.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:RadioButtons"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    ContentRendered="Window_ContentRendered"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <local:EnumToBooleanConverter x:Key="ComparisonConverter" />
+            </StackPanel.Resources>
+            <RadioButton Content="Auto" IsChecked="{Binding Path=WorkMode, Mode=TwoWay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static local:WorkModeEnum.Auto}}" />
+            <RadioButton Content="Manual" IsChecked="{Binding Path=WorkMode, Mode=TwoWay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static local:WorkModeEnum.Manual}}" />
+        </StackPanel>
+    </Grid>
+</Window>
